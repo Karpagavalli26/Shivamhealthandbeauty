@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agri Care Range - Shivam Health & Beauty Care. Premium organic soil nutrition serums, natural foliar growth support elixirs, and precision testing tools.">
+    <title>Modern Agri Care Wellness | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Agri Care Solutions</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <a href="products.html">Care Ranges</a>
+                <span>&bull;</span>
+                <span class="text-muted">Agri Care</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="category-intro scroll-animate">
+                <span class="section-subtitle">Wellness Agriculture</span>
+                <h2>Nurturing the Earth, Elevating Harvest Vitality</h2>
+                <p>Agri Care by MI Lifestyle introduces advanced bio-nutrition solutions designed to support healthier soil and stronger crop growth. Formulated with a focus on natural balance, these inputs help improve soil microbial activity and enhance plant vitality for more consistent agricultural performance.
+
+By encouraging a healthier soil ecosystem, Agri Care supports sustainable farming practices that promote better yield quality and long-term field productivity without reliance on harsh chemical inputs.</p>
+            </div>
+
+            <!-- Dynamic Products Grid -->
+            <div class="featured-grid" id="agricare-products-grid">
+                <!-- Injected dynamically via products-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Agri Wellness Showcase Table -->
+    <section class="section-alt">
+        <div class="container">
+            <span class="section-subtitle">Agri Bio-Nutrition Analysis</span>
+            <h2>Performance Overview</h2>
+            <p class="text-muted" style="text-align: center; max-width: 600px; margin: -20px auto 40px auto;">A science-inspired comparison showing how MI Lifestyle Agri Care bio-nutritional solutions support healthier soil systems and improved crop quality compared to conventional synthetic inputs.</p>
+            
+            <div class="agri-table-wrapper scroll-animate">
+                <table class="agri-table">
+                    <thead>
+                        <tr>
+                            <th>Wellness Metric</th>
+                            <th>Traditional Synthetics</th>
+                            <th> Agri Care Range</th>
+                            <th>Net Performance Growth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Soil Microbe Activity</strong></td>
+                            <td>Reduced due to chemical salts</td>
+                            <td>Enhanced through humic and seaweed-based actives</td>
+                            <td>+140% microbial vigor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plant Defense Response</strong></td>
+                            <td>Frequent pesticide dependency</td>
+                            <td>Activated natural phyto-defense compounds</td>
+                            <td>85% improved natural resistance/td>
+                        </tr>
+                        <tr>
+                            <td><strong>Harvest Nutrient Quality</strong></td>
+                            <td>Standard nutrient profile</td>
+                            <td>Enriched with fulvic and trace minerals</td>
+                            <td>+38% mineral density</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soil Moisture & Humus</strong></td>
+                            <td>Nutrient leaching over time</td>
+                            <td>Improved retention through natural bio-polymers</td>
+                            <td>+50% moisture retention</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agri Care Benefits -->
+    <section class="section">
+        <div class="container">
+            <span class="section-subtitle">The Science of Vigor</span>
+            <h2>Why Agri Wellness?</h2>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">01</div>
+                    <h3 class="benefit-title">Soil Microbe Revival</h3>
+                    <p class="text-muted">Supports restoration of natural soil biology by enhancing organic humic balance, helping improve nutrient cycling and soil vitality.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">02</div>
+                    <h3 class="benefit-title">Photosynthetic Vigor</h3>
+                    <p class="text-muted">Plant-supporting botanical extracts help encourage healthier foliage development, stronger root growth, and improved crop performance.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">03</div>
+                    <h3 class="benefit-title">Precision Diagnostics</h3>
+                    <p class="text-muted">Data-driven monitoring of key soil conditions enables better understanding of crop needs and supports more informed agricultural practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Product Dynamic Loader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("agricare-products-grid");
+            if (!grid || typeof productsData === "undefined") return;
+
+            const acProducts = productsData.filter(p => p.category === "agricare");
+            
+            grid.innerHTML = acProducts.map(p => `
+                <div class="product-card scroll-animate">
+                    ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                    <div class="product-image-container">
+    <img src="${p.image}" alt="${p.name}" class="product-image">
+</div>
+                    <div class="product-details">
+                        <span class="product-cat">${p.tag}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc-short">${p.descShort}</p>
+                        <div class="product-actions">
+                            <span class="product-tag">${p.price}</span>
+                            <button class="product-inquiry-btn" data-product-name="${p.name}" data-product-category="Agri Care">
+                                Inquire &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            setupScrollAnimations();
+        });
+    </script>
+</body>
+</html>

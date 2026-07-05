@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Us - Shivam Health & Beauty Care. Reach out for custom skincare consultation, wholesale orders or general inquiries. Includes office address and location map.">
+    <title>Contact Us | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Contact Us</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <span class="text-muted">Contact</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details & Form -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Left Column: Details -->
+                <div class="contact-info-panel scroll-animate">
+                    <div>
+                        <span class="section-subtitle" style="text-align: left;">Direct Communication</span>
+                        <h2 style="text-align: left; margin-bottom: 30px; padding-bottom: 0;">Connect With Us</h2>
+                        <p class="text-muted">For bespoke skin recommendations, custom agricultural consultations, or retail distribution queries, select your preferred channel below. Our team replies within 24 hours.</p>
+                    </div>
+
+                    <!-- Info items -->
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact-info-details">
+                            <h3>Corporate Address</h3>
+                            <p>102 Luxury Boulevard, Health & Beauty Plaza, Gujarat, India</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-info-details">
+                            <h3>Email Support</h3>
+                            <p><a href="mailto:info@shivamcare.com">info@shivamcare.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="contact-info-details">
+                            <h3>Phone Enquiries</h3>
+                            <p>+91 81899 55667</p>
+                        </div>
+                    </div>
+
+                    <!-- Google Maps REMOVED -->
+                </div>
+
+                <!-- Right Column: Interactive Form -->
+                <div class="contact-form-panel glass-card scroll-animate">
+                    <span class="section-subtitle" style="text-align: left;">Bespoke Inquiries</span>
+                    <h3 style="margin-bottom: 25px; font-size: 1.4rem;">Send a Message</h3>
+                    
+                    <form id="direct-contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="c-name">Full Name</label>
+                            <input type="text" id="c-name" class="form-input" placeholder="e.g., John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="c-email">Email Address</label>
+                            <input type="email" id="c-email" class="form-input" placeholder="e.g., john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="c-phone">Phone Number (Optional)</label>
+                            <input type="tel" id="c-phone" class="form-input" placeholder="e.g., +91 98765 43210">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="c-subject">Subject</label>
+                            <select id="c-subject" class="form-select" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="Skincare Consulting">Skincare Regimen Consulting</option>
+                                <option value="B2B & Spas">Wholesale Spas / Corporate Orders</option>
+                                <option value="Agribusiness inputs">Agri Care Bio-Nutrition</option>
+                                <option value="General Feedback">Feedback & Questions</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="c-message">Inquiry Details</label>
+                            <textarea id="c-message" class="form-textarea" placeholder="Type your query details here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Contact Form handler -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("direct-contact-form");
+            if (!form) return;
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("c-name").value;
+                const subject = document.getElementById("c-subject").value;
+
+                const submitBtn = form.querySelector(".form-submit-btn");
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = "Sending...";
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    if (typeof showToast !== "undefined") {
+                        showToast(`Thank you, ${name}! Your query regarding "${subject}" has been successfully logged.`, "✨");
+                    } else {
+                        alert(`Thank you, ${name}! Your query has been logged.`);
+                    }
+
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>

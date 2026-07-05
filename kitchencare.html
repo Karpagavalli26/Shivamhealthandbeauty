@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self Care Range - Shivam Health & Beauty Care. Premium sleep aid gummies, 24K gold sonic facial rollers, and deep calm jasmine bath salt soaks.">
+    <title>Self Care & Lifestyle | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero" style="background: linear-gradient(135deg, rgba(248, 200, 220, 0.2) 0%, rgba(245, 235, 230, 0.3) 100%);">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Kitchen Care Range</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <a href="products.html">Care Ranges</a>
+                <span>&bull;</span>
+                <span class="text-muted">Kitchen Care</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="category-intro scroll-animate">
+                <span class="section-subtitle">Healthy Kitchen</span>
+                <h2>Kitchen Care Essentials</h2>
+                <p>Our Kitchen Care range includes specially formulated food-support powders designed to enhance your daily cooking routine. These products are created to improve convenience in preparation, support better food quality, and help maintain consistency in everyday meals. Easy to use and thoughtfully developed, they fit seamlessly into your kitchen needs while supporting a balanced lifestyle.</p>
+            </div>
+
+            <!-- Dynamic Products Grid -->
+            <div class="featured-grid" id="kitchencare-products-grid">
+                <!-- Injected dynamically via products-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Calming Interactive Panel -->
+    <section class="section-alt" style="background-color: #FAF2EF;">
+        <div class="container">
+            <div class="story-row">
+                <div class="scroll-animate">
+                    <img src="images/kitchencare/aahartealite.jpeg" alt="Self care relaxation scene" style="border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                </div>
+                <div class="scroll-animate">
+                    <span class="section-subtitle" style="text-align: left;">Aahar Tea Lite Gold</span>
+                    <h3>The Ritual of Gentle Refreshment</h3>
+                    <p>Aahar Tea Lite Gold is a smooth, high-grown tea blend designed to bring a sense of calm and freshness to your daily routine. Crafted from carefully selected tea leaves, it offers a naturally rich aroma and a clean, balanced taste that makes every cup feel light and refreshing.
+                     <button class="btn btn-pink product-inquiry-btn" data-product-name="Deep Calm Jasmine Bath Soak" data-product-category="kitchen Care">Inquire About AAHAR</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Self Care Benefits -->
+    <section class="section">
+        <div class="container">
+            <span class="section-subtitle">Mindful Kitchen Philosophy</span>
+            <h2>Kitchen Care Benefits</h2>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">01</div>
+                    <h3 class="benefit-title">Functional Support</h3>
+                    <p class="text-muted">Herbal and food-support formulations designed to enhance daily kitchen routines and maintain consistency in preparation.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">02</div>
+                    <h3 class="benefit-title">Digestive Balance</h3>
+                    <p class="text-muted">Carefully developed blends that support easier digestion and help maintain lightness after meals.
+
+</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">03</div>
+                    <h3 class="benefit-title">Everyday Wellness Ritual</h3>
+                    <p class="text-muted">Simple, convenient powders that integrate into daily cooking habits, supporting a more balanced and mindful lifestyle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Product Dynamic Loader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("kitchencare-products-grid");
+            if (!grid || typeof productsData === "undefined") return;
+
+            const kitchenProducts = productsData.filter(p => p.category === "kitchencare");
+            
+            grid.innerHTML = kitchenProducts.map(p => `
+                <div class="product-card scroll-animate">
+                    ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                    <div class="product-image-container">
+    <img src="${p.image}" alt="${p.name}" class="product-image">
+</div>
+                    <div class="product-details">
+                        <span class="product-cat">${p.tag}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc-short">${p.descShort}</p>
+                        <div class="product-actions">
+                            <span class="product-tag">${p.price}</span>
+                            <button class="product-inquiry-btn" data-product-name="${p.name}" data-product-category="kitchen Care">
+                                Inquire &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            setupScrollAnimations();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home Care Range - Shivam Health & Beauty Care. Premium citrus and vetiver multi-surface purifiers, French lavender linen mists, and skin-friendly dish gels.">
+    <title>Home Care Essentials | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Home Care Range</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <a href="products.html">Care Ranges</a>
+                <span>&bull;</span>
+                <span class="text-muted">Home Care</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="category-intro scroll-animate">
+                <span class="section-subtitle">Healthy Home Essentials</span>
+                <h2>Clean Living Starts at Home</h2>
+                <p>MI Lifestyle Home Care offers quality household essentials for effective cleaning and everyday hygiene, helping keep your home fresh, clean, and comfortable.
+</p>
+            </div>
+
+            <!-- Dynamic Products Grid -->
+            <div class="featured-grid" id="homecare-products-grid">
+                <!-- Injected dynamically via products-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Benefits Section -->
+    <section class="section-alt">
+        <div class="container">
+            <span class="section-subtitle">Non-Toxic Living</span>
+            <h2>Pure Environment Standards</h2>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">01</div>
+                    <h3 class="benefit-title">Powerful Cleaning</h3>
+                    <p class="text-muted">Removes grease, stains, and dirt effectively for a cleaner home every day.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">02</div>
+                    <h3 class="benefit-title">Fresh & Hygienic</h3>
+                    <p class="text-muted">Keeps your surroundings fresh with long-lasting cleanliness and pleasant fragrance.
+
+</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">03</div>
+                    <h3 class="benefit-title">Everyday Care</h3>
+                    <p class="text-muted">Safe and convenient solutions designed for daily household cleaning and maintenance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry CTA Block -->
+    <section class="section">
+        <div class="container" style="text-align: center;">
+            <div class="newsletter-box scroll-animate">
+                <h3>Keep Your Home Fresh & Clean</h3>
+                <p>Explore our range of home care products designed for everyday cleaning and hygiene. Discover reliable solutions for a healthier, cleaner living space.</p>
+                <button class="btn btn-primary open-inquiry-btn" data-product-category="Home Care">Inquire About Home Care</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Product Dynamic Loader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("homecare-products-grid");
+            if (!grid || typeof productsData === "undefined") return;
+
+            const hmProducts = productsData.filter(p => p.category === "homecare");
+            
+            grid.innerHTML = hmProducts.map(p => `
+                <div class="product-card scroll-animate">
+                    ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                    <div class="product-image-container">
+    <img src="${p.image}" alt="${p.name}" class="product-image">
+</div>
+                    <div class="product-details">
+                        <span class="product-cat">${p.tag}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc-short">${p.descShort}</p>
+                        <div class="product-actions">
+                            <span class="product-tag">${p.price}</span>
+                            <button class="product-inquiry-btn" data-product-name="${p.name}" data-product-category="Home Care">
+                                Inquire &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            setupScrollAnimations();
+        });
+    </script>
+</body>
+</html>

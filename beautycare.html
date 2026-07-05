@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beauty Care Range - Shivam Health & Beauty Care. Premium Kashmiri saffron serums, peptide hydrating creams, argan repair hair elixirs, and sandalwood beard oils.">
+    <title>Prestige Beauty Care | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Beauty Care Range</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <a href="products.html">Care Ranges</a>
+                <span>&bull;</span>
+                <span class="text-muted">Beauty Care</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="category-intro scroll-animate">
+                <span class="section-subtitle">Radiant Beauty Care</span>
+                <h2>Premium Skincare & Personal Care</h2>
+                <p>**Discover the MI Lifestyle Beauty Care range, offering quality skincare and personal care products for healthy, nourished, and naturally glowing skin.**
+</p>
+            </div>
+
+            <!-- Dynamic Products Grid -->
+            <div class="featured-grid" id="beautycare-products-grid">
+                <!-- Injected dynamically via products-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- High End Editorial Showcase -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-content scroll-animate">
+                    <span class="section-subtitle" style="text-align: left;">Beauty Spotlight</span>
+                    <h3>Elements Multi-Action Complexion Cream</h3>
+                    <p>The Elements Multi-Action Complexion Cream is a daily skincare cream formulated to moisturize, nourish, and improve overall skin appearance. Enriched with skin-friendly ingredients, it helps reduce the appearance of dark spots, supports an even-looking complexion, and keeps the skin soft, smooth, and hydrated with regular use.
+</p>
+                    <button class="btn btn-primary product-inquiry-btn" data-product-name="Royal Saffron Skincare Serum" data-product-category="Beauty Care">Request Product Details</button>
+                </div>
+               <div class="intro-image-container scroll-animate">
+    <img src="images/Beautycare/fairnesscream.jpeg"
+         alt="Elements Multi-Action Complexion Cream"
+         style="width:100%;
+                aspect-ratio:4/5;
+                object-fit:cover;
+                border-radius:var(--border-radius);
+                box-shadow:var(--box-shadow);">
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beauty Care Benefits -->
+    <section class="section">
+        <div class="container">
+            <span class="section-subtitle">Premium Clean Beauty</span>
+            <h2>Our Formulation Standards</h2>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">01</div>
+                    <h3 class="benefit-title">Skin-Friendly Formula</h3>
+                    <p class="text-muted">Developed with carefully selected ingredients to provide gentle daily care for all skin types.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">02</div>
+                    <h3 class="benefit-title">Nature Meets Innovation</h3>
+                    <p class="text-muted">Combines botanical extracts with modern skincare ingredients to nourish, hydrate, and support healthy-looking skin..</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">03</div>
+                    <h3 class="benefit-title">Ethical Quality</h3>
+                    <p class="text-muted">Made with vegetarian ingredients and produced with a commitment to quality and responsible manufacturing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Product Dynamic Loader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("beautycare-products-grid");
+            if (!grid || typeof productsData === "undefined") return;
+
+            const bcProducts = productsData.filter(p => p.category === "beautycare");
+            
+            grid.innerHTML = bcProducts.map(p => `
+                <div class="product-card scroll-animate">
+                    ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                    <div class="product-image-container">
+    <img src="${p.image}" alt="${p.name}" class="product-image">
+</div>
+                    <div class="product-details">
+                        <span class="product-cat">${p.tag}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc-short">${p.descShort}</p>
+                        <div class="product-actions">
+                            <span class="product-tag">${p.price}</span>
+                            <button class="product-inquiry-btn" data-product-name="${p.name}" data-product-category="Beauty Care">
+                                Inquire &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            setupScrollAnimations();
+        });
+    </script>
+</body>
+</html>

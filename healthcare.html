@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Health Care Range - Shivam Health & Beauty Care. Premium Ayurvedic collagen boosters, Himalayan Shilajit resins, and detoxifying wellness herbal teas.">
+    <title>Health Care Solutions | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Health Care Range</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <a href="products.html">Care Ranges</a>
+                <span>&bull;</span>
+                <span class="text-muted">Health Care</span>
+            </div>
+        </div>
+    </section>
+    <!-- Category Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="category-intro scroll-animate">
+                <span class="section-subtitle">Complete Daily Wellness</span>
+                <h2>Quality Health Products Backed by Nature and Trusted Formulation</h2>
+                <p>MI Lifestyle Health Care offers a premium range of nutritional supplements and wellness products designed to support immunity, energy, digestion, and overall well-being. Experience trusted daily health with quality formulations.
+</p>
+            </div>
+            <!-- Dynamic Products Grid -->
+            <div class="featured-grid" id="healthcare-products-grid">
+                <!-- Injected dynamically via products-data.js -->
+            </div>
+        </div>
+    </section>
+    <!-- Health Benefits Section -->
+    <section class="section-alt">
+        <div class="container">
+            <span class="section-subtitle">Trusted Nutrition for Healthy Living</span>
+            <h2>Health Care Benefits</h2>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">01</div>
+                    <h3 class="benefit-title">Daily Nutrition</h3>
+                    <p class="text-muted">Provides essential vitamins, minerals, and herbal nutrients to support overall health and energy.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">02</div>
+                    <h3 class="benefit-title">Immunity Support</h3>
+                    <p class="text-muted">Helps strengthen the body's natural defenses with carefully selected wellness ingredients.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card glass-card scroll-animate">
+                    <div class="benefit-num">03</div>
+                    <h3 class="benefit-title">Digestive Wellness</h3>
+                    <p class="text-muted">Supports healthy digestion and better nutrient absorption for everyday well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Inquiry CTA Block -->
+    <section class="section">
+        <div class="container" style="text-align: center;">
+            <div class="newsletter-box scroll-animate">
+                <h3>Curate Your Health Regimen</h3>
+                <p>Not sure which health supplement fits your profile? Get in touch with our certified Ayurvedic wellness consultants for a tailored routine.</p>
+                <button class="btn btn-primary open-inquiry-btn" data-product-category="Health Care">Inquire About Health Care</button>
+            </div>
+        </div>
+    </section>
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Product Dynamic Loader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("healthcare-products-grid");
+            if (!grid || typeof productsData === "undefined") return;
+            const hcProducts = productsData.filter(p => p.category === "healthcare");
+            
+            grid.innerHTML = hcProducts.map(p => `
+                <div class="product-card scroll-animate">
+                    ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                   <div class="product-image-container">
+    <img src="${p.image}" alt="${p.name}" class="product-image">
+</div>
+                    <div class="product-details">
+                        <span class="product-cat">${p.tag}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc-short">${p.descShort}</p>
+                        <div class="product-actions">
+                            <span class="product-tag">${p.price}</span>
+                            <button class="product-inquiry-btn" data-product-name="${p.name}" data-product-category="Health Care">
+                                Inquire &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Re-setup scroll animations for newly injected cards
+            setupScrollAnimations();
+        });
+    </script>
+</body>
+</html>
