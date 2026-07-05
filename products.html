@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prestige Catalog - Shivam Health & Beauty Care. Search and filter our global luxurious range of organic beauty, supplements, home fragrances and bio-farming inputs.">
+    <title>Prestige Catalog | Shivam Health & Beauty Care</title>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Printable Catalog Styling */
+        @media print {
+            header, footer, .whatsapp-widget, .catalog-sidebar, .catalog-meta, .product-actions, button, .inquiry-modal-backdrop {
+                display: none !important;
+            }
+            body {
+                background: #FFFFFF !important;
+                color: #000000 !important;
+            }
+            .products-catalog-wrapper {
+                grid-template-columns: 1fr !important;
+            }
+            .product-card {
+                break-inside: avoid;
+                border: 1px solid #CCCCCC !important;
+                box-shadow: none !important;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content scroll-animate">
+            <h1 class="page-hero-title">Prestige Catalog</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>&bull;</span>
+                <span class="text-muted">Catalog</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Catalog Section -->
+    <section class="section">
+        <div class="container">
+            <div class="products-catalog-wrapper">
+                
+                <!-- Sidebar Filters -->
+                <aside class="catalog-sidebar scroll-animate">
+
+                    <div style="margin-top:20px;">
+    <a href="milifestyle.pdf"
+       download
+       id="download-catalog-pdf-btn"
+       class="btn btn-primary"
+       style="width:100%;display:block;text-align:center;">
+        📄 Download Brochure
+    </a>
+</div>
+                    
+                    <!-- Search Input -->
+                    <div class="catalog-search-wrapper">
+                        <input type="text" id="catalog-search-box" class="catalog-search-input" placeholder="Search product or ingredient...">
+                        <svg class="catalog-search-icon" style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </div>
+
+                    <!-- Category Checkboxes -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Care Collections</h4>
+                        <ul class="filter-options">
+                            <li>
+                                <label class="filter-label">
+                                    <input type="checkbox" class="filter-checkbox" value="healthcare">
+                                    <span>Health Care</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="filter-label">
+                                    <input type="checkbox" class="filter-checkbox" value="homecare">
+                                    <span>Home Care</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="filter-label">
+                                    <input type="checkbox" class="filter-checkbox" value="beautycare">
+                                    <span>Beauty Care</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="filter-label">
+                                    <input type="checkbox" class="filter-checkbox" value="kitchencare">
+                                    <span>Kitchen Care</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="filter-label">
+                                    <input type="checkbox" class="filter-checkbox" value="agricare">
+                                    <span>Agri Care</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                     <!-- Action buttons -->
+                   
+                </aside>
+
+                <!-- Products Display Area -->
+                <main>
+                    <div class="catalog-meta scroll-animate">
+                        <div class="products-count" id="catalog-products-count">Showing 0 products</div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="catalog-grid" id="catalog-products-grid">
+                        <!-- Loaded dynamically via products-data.js -->
+                    </div>
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal Backdrop -->
+    <div class="inquiry-modal-backdrop" id="product-detail-modal-backdrop">
+        <div class="inquiry-modal glass-card" style="max-width: 850px; padding:0;">
+            <div class="inquiry-modal-header">
+                <h3 id="detail-modal-title">Product Details</h3>
+                <span class="inquiry-modal-close" id="detail-modal-close-btn">&times;</span>
+            </div>
+            <div class="inquiry-modal-body" style="max-height: 80vh; overflow-y: auto;">
+                <div class="product-detail-modal-body">
+                    
+                    <!-- Left: Image -->
+                    <div class="modal-product-image">
+                      <img id="detail-image-box" src="" alt="Product Image" class="product-image">
+                    </div>
+
+                    <!-- Right: Info & Inquiry -->
+                    <div class="modal-product-info">
+                        <span class="modal-product-cat" id="detail-modal-cat">Care Category</span>
+                        <h2 class="modal-product-name" id="detail-modal-name" style="text-align: left; padding: 0; margin-bottom: 10px;">Product Name</h2>
+                        <span class="product-tag" id="detail-modal-price" style="font-size: 1.2rem; margin-bottom: 20px; display:block; color:var(--color-gold);">Price</span>
+                        
+                        <p class="modal-product-desc" id="detail-modal-desc">Detailed product description goes here...</p>
+                        
+                        <div class="modal-detail-tab">
+                            <h4 class="modal-detail-title">Key Actives</h4>
+                            <p class="modal-detail-content" id="detail-modal-ingredients">Extracts, roots, and elements.</p>
+                        </div>
+                        
+                        <div class="modal-detail-tab">
+                            <h4 class="modal-detail-title">Usage Protocol</h4>
+                            <p class="modal-detail-content" id="detail-modal-usage">Daily dosage and instructions.</p>
+                        </div>
+
+                        <div class="modal-detail-tab">
+                            <h4 class="modal-detail-title">Certifications</h4>
+                            <p class="modal-detail-content" id="detail-modal-features">Clinically certified points.</p>
+                        </div>
+
+                        <button class="btn btn-primary" id="detail-modal-inquire-trigger" style="margin-top: 15px;">Send Product Inquiry</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Javascript Files -->
+    <script src="js/products-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/video-player.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Catalog Logic Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("catalog-products-grid");
+            const countText = document.getElementById("catalog-products-count");
+            const searchBox = document.getElementById("catalog-search-box");
+            const checkBoxes = document.querySelectorAll(".filter-checkbox");
+            const printBtn = document.getElementById("download-catalog-pdf-btn");
+
+            // Detail Modal Elements
+            const detailModal = document.getElementById("product-detail-modal-backdrop");
+            const detailCloseBtn = document.getElementById("detail-modal-close-btn");
+            const dTitle = document.getElementById("detail-modal-name");
+            const dCat = document.getElementById("detail-modal-cat");
+            const dPrice = document.getElementById("detail-modal-price");
+            const dDesc = document.getElementById("detail-modal-desc");
+            const dIngredients = document.getElementById("detail-modal-ingredients");
+            const dUsage = document.getElementById("detail-modal-usage");
+            const dFeatures = document.getElementById("detail-modal-features");
+            const dImageBox = document.getElementById("detail-image-box");
+            const dInqBtn = document.getElementById("detail-modal-inquire-trigger");
+
+            let activeProduct = null;
+
+            if (typeof productsData === "undefined" || !grid) return;
+
+            // Render Products
+            function renderProducts() {
+                const searchStr = searchBox.value.toLowerCase().trim();
+                
+                // Get checked categories
+                const checkedCats = Array.from(checkBoxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                // Filter list
+                const filtered = productsData.filter(p => {
+                    const matchesSearch = p.name.toLowerCase().includes(searchStr) || 
+                                          p.tag.toLowerCase().includes(searchStr) || 
+                                          p.descShort.toLowerCase().includes(searchStr);
+                    
+                    const matchesCategory = checkedCats.length === 0 || checkedCats.includes(p.category);
+                    
+                    return matchesSearch && matchesCategory;
+                });
+
+                // Update count text
+                countText.textContent = `Showing ${filtered.length} products`;
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px 0; color: var(--color-text-light);">No products found matching your search.</div>`;
+                    return;
+                }
+
+                // Render grid
+                grid.innerHTML = filtered.map(p => `
+                    <div class="product-card scroll-animate">
+                        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                        <div class="product-image-container">
+    <img src="${p.image}" alt="${p.name}" class="product-image">
+</div>
+                        <div class="product-details">
+                            <span class="product-cat">${p.tag}</span>
+                            <h3 class="product-name">${p.name}</h3>
+                            <p class="product-desc-short">${p.descShort}</p>
+                            <div class="product-actions" style="border-top: 1px solid var(--color-border); padding-top: 15px;">
+                                <span class="product-tag">${p.price}</span>
+                                <button class="product-inquiry-btn view-details-trigger" data-id="${p.id}" style="color:var(--color-gold); font-family:var(--font-accent); font-size:0.75rem; text-transform:uppercase; font-weight:600; cursor:pointer;">
+                                    View Details &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                setupScrollAnimations();
+                attachDetailTriggers();
+            }
+
+            // Search and Checkbox inputs
+            searchBox.addEventListener("input", renderProducts);
+            checkBoxes.forEach(cb => cb.addEventListener("change", renderProducts));
+
+            // Setup Detail Trigger Handlers
+            function attachDetailTriggers() {
+                const triggers = document.querySelectorAll(".view-details-trigger");
+                triggers.forEach(btn => {
+                    btn.addEventListener("click", (e) => {
+                        const pid = btn.dataset.id;
+                        openDetailModal(pid);
+                    });
+                });
+            }
+
+            function openDetailModal(productId) {
+                const product = productsData.find(p => p.id === productId);
+                if (!product) return;
+
+                activeProduct = product;
+
+                // Load Info
+                dTitle.textContent = product.name;
+                dCat.textContent = product.tag;
+                dPrice.textContent = product.price;
+                dDesc.textContent = product.description;
+                dIngredients.textContent = product.ingredients;
+                dUsage.textContent = product.usage;
+                dFeatures.textContent = product.features;
+                
+                // Color Code Image container matching category
+                let gradColor = "#D4AF37";
+                if(product.category === 'kitchencare') gradColor = "#F8C8DC";
+               dImageBox.src = product.image;
+               dImageBox.alt = product.name;
+
+                // Open modal
+                detailModal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+            // Close Detail Modal
+            if(detailCloseBtn) {
+                detailCloseBtn.addEventListener("click", () => {
+                    detailModal.classList.remove("active");
+                    document.body.style.overflow = "";
+                });
+            }
+            detailModal.addEventListener("click", (e) => {
+                if (e.target === detailModal) {
+                    detailModal.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
+            });
+
+            // Inquiry within detail trigger
+            if(dInqBtn) {
+                dInqBtn.addEventListener("click", () => {
+                    if (!activeProduct) return;
+                    
+                    // Close Detail Modal
+                    detailModal.classList.remove("active");
+                    
+                    // Open Global Inquiry modal with prefilled data
+                    const globalInqBackdrop = document.getElementById("global-inquiry-backdrop");
+                    const categorySelect = document.getElementById("inq-category");
+                    const msgTextarea = document.getElementById("inq-msg");
+                    
+                    let displayCategory = "General Inquiry";
+                    if(activeProduct.category === 'healthcare') displayCategory = "Health Care";
+                    if(activeProduct.category === 'homecare') displayCategory = "Home Care";
+                    if(activeProduct.category === 'beautycare') displayCategory = "Beauty Care";
+                    if(activeProduct.category === 'kitchencare') displayCategory = "Kitchen Care";
+                    if(activeProduct.category === 'agricare') displayCategory = "Agri Care";
+
+                    if (categorySelect) categorySelect.value = displayCategory;
+                    if (msgTextarea) {
+                        msgTextarea.value = `I would like to inquire about "${activeProduct.name}". Please send details, catalog information, and custom pricing.`;
+                    }
+
+                    if(globalInqBackdrop) globalInqBackdrop.classList.add("active");
+                });
+            }
+
+            // Print catalog
+            i
+
+            // Initial Render
+            renderProducts();
+        });
+    </script>
+</body>
+</html>
